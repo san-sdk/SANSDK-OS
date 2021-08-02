@@ -1,0 +1,3 @@
+rootProject.name = "SANSample"
+include ':Sample'
+include ':SAN-SDK'

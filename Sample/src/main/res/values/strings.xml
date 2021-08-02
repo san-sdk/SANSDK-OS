@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SANSample</string>
+
+    <string name="title_native">Native Ad</string>
+    <string name="title_Banner">Banner Ad</string>
+    <string name="title_fullscreen">FullScreen Ad</string>
+
+    <string name="request_ad_itl">Request Interstitial Ad</string>
+    <string name="request_ad_rwd">Request Rewarded Ad</string>
+    <string name="native_ad_request"><![CDATA[Request&Show Native Ad]]></string>
+    <string name="native_list_test">Start new page for test native ad in list</string>
+    <string name="load_and_show_native">Load and show NativeAd</string>
+    <string name="native_ad_container">Native Ad Show Container</string>
+    <string name="request_ad_banner">Request Banner Ad(320*50)</string>
+    <string name="request_ad_banner250">Request Banner Ad(300*250)</string>
+    <string name="show_ad">Show Ad</string>
+
+</resources>

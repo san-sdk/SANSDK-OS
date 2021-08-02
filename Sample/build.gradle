@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.san.sansample"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../san_debug.jks')
+            storePassword 'san_debug'
+            keyAlias 'san_debug'
+            keyPassword 'san_debug'
+        }
+
+        release {
+            storeFile file('../san_debug.jks')
+            storePassword 'san_debug'
+            keyAlias 'san_debug'
+            keyPassword 'san_debug'
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        demo {//open sdk test
+            applicationId "com.san.sansample"
+
+            manifestPlaceholders = [SAN_KEY: "42195f94-54b3-4cff-8418-9d6e92dff521"]
+            buildConfigField("String", "placement_id_native", "\"1769\"")
+            buildConfigField("String", "placement_id_itl", "\"1752\"")
+            buildConfigField("String", "placement_id_rwd", "\"1753\"")
+            buildConfigField("String", "placement_id_banner_50", "\"1754\"")
+            buildConfigField("String", "placement_id_banner_250", "\"1751\"")
+        }
+    }
+
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    //Kotlin
+    implementation "androidx.core:core-ktx:1.5.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation project(":SAN-SDK")
+
+}
